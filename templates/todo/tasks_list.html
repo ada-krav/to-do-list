@@ -41,6 +41,16 @@
             <a href="{% url 'todo:task-delete' pk=task.id %}" class="btn btn-danger">
               Delete
             </a>
+            {% if task.completed %}
+              <a href="{% url 'todo:complete-undo' pk=task.id %}" class="btn btn-secondary">
+                Undo
+              </a>
+            {% else %}
+              <a href="{% url 'todo:complete-undo' pk=task.id %}" class="btn btn-info">
+                Complete
+              </a>
+            {% endif %}
+
           </p>
           <hr>
         </li>
