@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    To-Do List
+  </h1>
+  {% if tasks_list %}
+    <ul>
+      {% for task in tasks_list %}
+        <li>
+          {{ task.content }}
+          <hr>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>There are no tasks</p>
+  {% endif %}
+{% endblock %}
