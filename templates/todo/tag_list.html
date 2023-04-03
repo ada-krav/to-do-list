@@ -17,7 +17,7 @@
           {{ tag.name }}
         </td>
         <td>
-          <a href="#">
+          <a href="{% url 'todo:tag-update' pk=tag.id %}">
             Update
           </a>
         </td>
