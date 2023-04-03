@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from todo.models import Tag
+from todo.models import Tag, Task
 
 
-# Create your views here.
 class TagListView(generic.ListView):
     model = Tag
     context_object_name = "tags_list"
@@ -27,3 +26,9 @@ class TagUpdateView(generic.UpdateView):
 class TagDeleteView(generic.DeleteView):
     model = Tag
     success_url = reverse_lazy("todo:tag-list")
+
+
+class TaskLiskView(generic.ListView):
+    model = Task
+    context_object_name = "tasks_list"
+    template_name = "todo/tasks_list.html"
