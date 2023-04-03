@@ -8,7 +8,8 @@ from todo.views import (
     TaskLiskView,
     TaskCreateView,
     TaskUpdateView,
-    TaskDeleteView, complete_undo_task,
+    TaskDeleteView,
+    complete_undo_task,
 )
 
 urlpatterns = [
