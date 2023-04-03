@@ -4,26 +4,31 @@
 {% block content %}
   <h1>
     To-Do List
-    <a href="{% url 'todo:task-create' %}" class="btn btn-primary link-to-page">
+    <a href="{% url 'todo:task-create' %}" class="btn btn-dark link-to-page">
       Create
     </a>
   </h1>
   {% if tasks_list %}
-    <ul>
+    <ul class="list-group">
       {% for task in tasks_list %}
-        <li>
-          <h5>
+        <li class="list-group-item">
+          <h4>
             {{ task.content }}
+          </h4>
+          <h6>
+            Status:
             {% if task.completed %}
-              Done
+              <span class="done">Done</span>
             {% else %}
               Not Done
             {% endif %}
-          </h5>
+          </h6>
           <p>
             Created at: {{ task.created_at }}
             {% if task.deadline %}
-              Deadline: {{ task.deadline }}
+              <p >
+                Deadline: {{ task.deadline }}
+              </p>
             {% endif %}
           </p>
           <h6>
@@ -35,14 +40,14 @@
               {% endfor %}
           </h6>
           <p>
-            <a href="{% url 'todo:task-update' pk=task.id %}" class="btn btn-secondary">
+            <a href="{% url 'todo:task-update' pk=task.id %}" class="update-link">
               Update
             </a>
-            <a href="{% url 'todo:task-delete' pk=task.id %}" class="btn btn-danger">
+            <a href="{% url 'todo:task-delete' pk=task.id %}" class="delete-link">
               Delete
             </a>
             {% if task.completed %}
-              <a href="{% url 'todo:complete-undo' pk=task.id %}" class="btn btn-secondary">
+              <a href="{% url 'todo:complete-undo' pk=task.id %}" class="btn btn-light">
                 Undo
               </a>
             {% else %}
@@ -52,7 +57,6 @@
             {% endif %}
 
           </p>
-          <hr>
         </li>
       {% endfor %}
     </ul>

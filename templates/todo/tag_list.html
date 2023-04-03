@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-  <h3>Tags List</h3>
-  <a href="{% url 'todo:tag-create' %}" class="btn btn-primary link-to-page">
+  <div class="col-sm-10">
+  <h3>
+    Tags List
+    <a href="{% url 'todo:tag-create' %}" class="btn btn-info link-to-page ml-auto">
       Create
   </a>
+  </h3>
+
   {% if tags_list %}
-    <table>
-      <tr>
+    <table class="table">
+      <tr class="thead-dark">
         <th>Name</th>
         <th>Update</th>
         <th>Delete</th>
@@ -17,12 +21,12 @@
           {{ tag.name }}
         </td>
         <td>
-          <a href="{% url 'todo:tag-update' pk=tag.id %}">
+          <a class="update-link" href="{% url 'todo:tag-update' pk=tag.id %}">
             Update
           </a>
         </td>
         <td>
-          <a href="{% url 'todo:tag-delete' pk=tag.id %}">
+          <a class="delete-link" href="{% url 'todo:tag-delete' pk=tag.id %}">
             Delete
           </a>
         </td>
@@ -32,4 +36,5 @@
   {% else %}
     <h4>There are no tags currently</h4>
   {% endif %}
+  </div>
 {% endblock %}
