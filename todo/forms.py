@@ -4,7 +4,7 @@ from todo.models import Tag, Task
 
 
 class DateTimeInput(forms.DateTimeInput):
-    '''Class to allow not-text datetime input'''
+    """Class to allow not-text datetime input"""
     input_type = "datetime-local"
 
 
