@@ -33,7 +33,7 @@ class TagDeleteView(generic.DeleteView):
 class TaskLiskView(generic.ListView):
     model = Task
     context_object_name = "tasks_list"
-    template_name = "todo/tasks_list.html"
+    template_name = "todo/task_list.html"
 
 
 class TaskCreateView(generic.CreateView):
